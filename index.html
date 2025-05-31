@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>Project HyperAdapt</title>
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --success-color: #4ecdc4;
+            --warning-color: #ffe066;
+            --danger-color: #ff6b6b;
+            --light-bg: #f8fafc;
+            --dark-bg: #1a1a2e;
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --success: #4ecdc4;
+            --warning: #ffe066;
+            --danger: #ff6b6b;
+            --dark: #1a1a2e;
+            --darker: #16213e;
+            --light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-bg));
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .dropdown-menu {
+            background: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-item {
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 4px 8px;
+            background: transparent;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.6) 100%), 
+                        url('images/backgrounds/hero-bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 0,0 1000,0"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Section Background Options */
+        .section-bg-1 {
+            background: linear-gradient(rgba(248, 249, 250, 0.75), rgba(248, 249, 250, 0.75)), 
+                        url('images/backgrounds/section-bg-1.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .section-bg-2 {
+            background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+                        url('images/backgrounds/section-bg-2.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .section-bg-3 {
+            background: linear-gradient(rgba(248, 249, 250, 0.8), rgba(248, 249, 250, 0.8)), 
+                        url('images/backgrounds/section-bg-3.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        /* Alternative: Subtle pattern backgrounds */
+        .pattern-bg-1 {
+            background: #f8f9fa url('images/patterns/circuit-pattern.png');
+            background-size: 400px 400px;
+            background-repeat: repeat;
+        }
+
+        .pattern-bg-2 {
+            background: #ffffff url('images/patterns/network-pattern.png');
+            background-size: 300px 300px;
+            background-repeat: repeat;
+        }
+
+        /* Cybersecurity themed background */
+        .cyber-bg {
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.75) 0%, rgba(49, 27, 146, 0.75) 100%), 
+                        url('images/backgrounds/cyber-security-bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .cyber-bg .section-title {
+            color: white;
+        }
+
+        .cyber-bg .component-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .cyber-bg .component-card h4,
+        .cyber-bg .component-card h5 {
+            color: #e3f2fd;
+        }
+
+        .cyber-bg .component-card a {
+            color: #81c784;
+        }
+
+        .cyber-bg .component-card a:hover {
+            color: #a5d6a7;
+        }
+
+        .cyber-bg .btn-outline-primary {
+            color: #81c784;
+            border-color: #81c784;
+        }
+
+        .cyber-bg .btn-outline-primary:hover {
+            background-color: #81c784;
+            border-color: #81c784;
+            color: #1a237e;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .btn-hero {
+            background: linear-gradient(45deg, var(--accent-color), #f39c12);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Component Cards */
+        .component-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .component-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .component-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* Methodology Section - Enhanced Styles */
+        #methodology {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .methodology-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 5px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .methodology-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .methodology-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .methodology-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.15);
+            border-left-color: var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-right: 1.5rem;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            color: rgba(26, 26, 46, 0.7);
+            font-weight: 500;
+        }
+
+        .card-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .principles-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .principles-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .principles-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .principles-list i {
+            color: var(--primary);
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .architecture-icon {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .architecture-icon i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .component-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+        }
+
+        .badge.bg-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+        }
+
+        .badge.bg-success {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d) !important;
+        }
+
+        .badge.bg-warning {
+            background: linear-gradient(135deg, #ffe066, #ff6b35) !important;
+        }
+
+        .badge.bg-info {
+            background: linear-gradient(135deg, #4ecdc4, #667eea) !important;
+        }
+
+        /* Results Section */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: scale(1.05);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Team Section */
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team-photo .placeholder-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Team Section - Enhanced Styles */
+        #team {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 420px; /* Fixed height for all cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.15);
+        }
+
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .team-photo {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .team-member:hover .team-photo img {
+            transform: scale(1.1);
+        }
+
+        .team-photo .placeholder-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 3rem;
+        }
+
+        .team-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+            min-height: 3.4rem; /* Reserve space for multi-line names */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-role {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .team-role.lead {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .team-role.developer {
+            background: linear-gradient(135deg, var(--success), #44a08d);
+            color: white;
+        }
+
+        .team-role.supervisor {
+            background: linear-gradient(135deg, var(--warning), #ff6b35);
+            color: white;
+        }
+
+        .team-role.external {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+        }
+
+        .team-role.co-supervisor {
+            background: linear-gradient(135deg, #667eea, #4ecdc4);
+            color: white;
+        }
+
+        .team-institution {
+            color: rgba(26, 26, 46, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            min-height: 2.8rem; /* Reserve consistent space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .team-contact {
+            margin-top: 1rem;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        .supervisors-section {
+            margin-top: 5rem;
+        }
+
+        .supervisors-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .supervisors-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .supervisors-subtitle {
+            text-align: center;
+            color: rgba(26, 26, 46, 0.6);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        /* Publications Section - Enhanced Styles */
+        #publications {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            padding: 100px 0;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #publications::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        #publications .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        #publications .section-title {
+            color: white;
+        }
+
+        #publications .section-title::after {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+        }
+
+        .doc-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: scan 3s ease-in-out infinite;
+        }
+
+        @keyframes scan {
+            0%, 100% { transform: translateX(-100%); opacity: 0; }
+            50% { transform: translateX(100%); opacity: 1; }
+        }
+
+        .doc-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .doc-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            width: 60px;
+            text-align: center;
+        }
+
+        .doc-icon.pdf {
+            color: #ff6b6b;
+        }
+
+        .doc-icon.presentation {
+            color: #4ecdc4;
+        }
+
+        .doc-icon.report {
+            color: #ffe066;
+        }
+
+        .doc-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .paper-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .paper-info {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--success), #44a08d);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        .presentations-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .presentations-list li {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .presentations-list li:last-child {
+            border-bottom: none;
+        }
+
+        .presentations-list li:hover {
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 1rem;
+            border-radius: 8px;
+        }
+
+        .presentations-list i {
+            color: var(--success);
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .presentations-list a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .presentations-list a:hover {
+            color: white;
+        }
+
+        .reports-section {
+            margin-top: 1.5rem;
+        }
+
+        .reports-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reports-title.group {
+            color: var(--primary);
+        }
+
+        .reports-title.individual {
+            color: var(--success);
+        }
+
+        .report-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .report-item:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+        .report-item i {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .report-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            flex-grow: 1;
+        }
+
+        .report-link:hover {
+            color: var(--accent);
+        }
+
+        .report-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .component-card {
+                padding: 1.5rem;
+            }
+            
+            .doc-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .doc-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .doc-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .reports-section {
+                margin-top: 2rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-shield-alt me-2"></i>
+                Project HyperAdapt
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Project Scope
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#literature">Literature Review</a></li>
+                            <li><a class="dropdown-item" href="#research-gap">Research Gap</a></li>
+                            <li><a class="dropdown-item" href="#methodology">Methodology</a></li>
+                            <li><a class="dropdown-item" href="#components">System Components</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#results">Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#publications">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Project HyperAdapt</h1>
+                <p class="lead">Agent-Based Intelligent Sandbox Design to Deceive and Analyze Sophisticated Malware</p>
+                <a href="#methodology" class="btn-hero">
+                    Explore Our Research <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Literature Review Section -->
+    <section id="literature" class="section section-bg-1">
+        <div class="container">
+            <h2 class="section-title">Literature Review</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="component-card">
+                        <p class="lead">Modern malware increasingly employs sophisticated evasion techniques to bypass sandbox-based analysis, rendering traditional detection methods ineffective. Our research addresses this critical cybersecurity challenge through a comprehensive literature analysis.</p>
+                        
+                        <h4 class="mt-4 mb-3">Key Research Areas:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Malware Evasion Techniques</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Sandbox Detection Methods</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Reinforcement Learning in Security</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>User Behavior Simulation</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dynamic Malware Analysis</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Machine Learning Detection</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Gap Section -->
+    <section id="research-gap" class="section">
+        <div class="container">
+            <h2 class="section-title">Research Gap</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="component-card text-center">
+                        <div class="component-icon mx-auto">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Limited RL Integration</h4>
+                        <p>Existing RL-based evasion models lack structured sequencing and real-time sandbox adaptation capabilities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="component-card text-center">
+                        <div class="component-icon mx-auto">
+                            <i class="fas fa-user-robot"></i>
+                        </div>
+                        <h4>Insufficient User Simulation</h4>
+                        <p>Traditional sandbox environments lack realistic user behavior simulation, making them easily detectable by advanced malware.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="component-card text-center">
+                        <div class="component-icon mx-auto">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Static Defense Mechanisms</h4>
+                        <p>Current sandbox systems use static rules and lack dynamic adaptation to evolving evasion techniques.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section - Enhanced -->
+    <section id="methodology" class="section section-bg-2">
+        <div class="container">
+            <h2 class="section-title">Methodology</h2>
+            <p class="section-subtitle">Innovative dual-approach framework combining offensive and defensive strategies</p>
+            
+            <div class="row align-items-stretch">
+                <div class="col-lg-6 mb-4">
+                    <div class="methodology-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Research Approach</h3>
+                                <p class="card-subtitle">Comprehensive methodology design</p>
+                            </div>
+                        </div>
+                        
+                        <p class="card-content">Our methodology integrates both <strong>offensive</strong> and <strong>defensive</strong> strategies to create a comprehensive malware analysis framework. This dual approach enables proactive identification of emerging evasion methods while enhancing security mechanisms.</p>
+                        
+                        <h5 class="principles-title">Key Principles:</h5>
+                        <ul class="principles-list">
+                            <li>
+                                <i class="fas fa-sync"></i>
+                                <span>Real-time feedback integration</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Continuous learning and adaptation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-sitemap"></i>
+                                <span>Multi-component system architecture</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                <span>Comprehensive evaluation metrics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="methodology-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">System Architecture</h3>
+                                <p class="card-subtitle">Integrated component framework</p>
+                            </div>
+                        </div>
+                        
+                        <div class="architecture-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        
+                        <p class="card-content">The framework consists of four integrated components working collaboratively to enhance sandbox resilience against sophisticated malware threats through intelligent adaptation and analysis.</p>
+                        
+                        <div class="component-badges">
+                            <span class="badge bg-primary text-white">Offensive RL Model</span>
+                            <span class="badge bg-success text-white">User Simulation</span>
+                            <span class="badge bg-warning text-white">Hybrid Detection</span>
+                            <span class="badge bg-info text-white">Dynamic Adaptation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Components Section -->
+    <section id="components" class="section">
+        <div class="container">
+            <h2 class="section-title">System Components</h2>
+            
+            <!-- Component 1: Offensive RL Model -->
+            <div class="component-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 text-center">
+                        <div class="component-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <h3 class="text-primary">Offensive Reinforcement Learning Model</h3>
+                        <p>A DQN-based RL model that dynamically learns evasion sequences to bypass Cuckoo Sandbox detection. Features include:</p>
+                        <ul class="row">
+                            <li class="col-md-6">Two-way communication with Cuckoo Sandbox</li>
+                            <li class="col-md-6">Structured evasion sequence optimization</li>
+                            <li class="col-md-6">Real-time feedback integration</li>
+                            <li class="col-md-6">Automated scoring and self-improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component 2: User Behavior Simulation -->
+            <div class="component-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 text-center">
+                        <div class="component-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <h3 class="text-success">GAN-Based User Behavior Simulation</h3>
+                        <p>Automated user behavior simulation system that counters sandbox-evasive malware by mimicking realistic user activity:</p>
+                        <ul class="row">
+                            <li class="col-md-6">WGAN-GP model for user profile generation</li>
+                            <li class="col-md-6">Automated behavior execution</li>
+                            <li class="col-md-6">Dynamic interaction scheduling</li>
+                            <li class="col-md-6">Seamless sandbox integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component 3: Hybrid Detection -->
+            <div class="component-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 text-center">
+                        <div class="component-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <h3 class="text-warning">Hybrid Evasion Detection System</h3>
+                        <p>Combines rule-based feature extraction with LSTM-based machine learning for comprehensive evasion detection:</p>
+                        <ul class="row">
+                            <li class="col-md-6">Rule-based pattern recognition</li>
+                            <li class="col-md-6">LSTM sequential analysis</li>
+                            <li class="col-md-6">Multi-label classification</li>
+                            <li class="col-md-6">Adaptive learning capabilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component 4: Dynamic Sandbox Modification -->
+            <div class="component-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 text-center">
+                        <div class="component-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <h3 class="text-info">Dynamic Sandbox Environment Modification</h3>
+                        <p>RL agent that dynamically modifies sandbox environment to prevent malware from hiding malicious behavior:</p>
+                        <ul class="row">
+                            <li class="col-md-6">Real-time environment adaptation</li>
+                            <li class="col-md-6">Reward-based learning mechanism</li>
+                            <li class="col-md-6">Continuous performance optimization</li>
+                            <li class="col-md-6">Automated threat response</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="section section-bg-3">
+        <div class="container">
+            <h2 class="section-title">Research Results</h2>
+            
+            <div class="results-grid">
+                <!-- Offensive RL Model Results -->
+                <div class="metric-card">
+                    <div class="metric-value">60-80%</div>
+                    <div class="metric-label">Evasion Success Rate</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">95%</div>
+                    <div class="metric-label">Hybrid Detection Accuracy</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">85-95%</div>
+                    <div class="metric-label">Malware Detection Rate</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">0.98</div>
+                    <div class="metric-label">GAN Correlation Similarity</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">70-90%</div>
+                    <div class="metric-label">Execution Path Coverage</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">2-5%</div>
+                    <div class="metric-label">False Positive Rate</div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="component-card text-center">
+                        <h4>Key Achievements</h4>
+                        <p class="lead">Our research demonstrates significant improvements in malware detection, deception, and behavioral analysis, with the sandbox continuously adapting to counter evolving threats.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <i class="fas fa-chart-line text-success" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Enhanced Detection</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fas fa-shield-alt text-primary" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Improved Security</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fas fa-sync-alt text-warning" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Real-time Adaptation</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="section-title">Research Team</h2>
+            <p class="section-subtitle">Dedicated cybersecurity researchers advancing malware analysis technology</p>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-member fade-in">
+                        <div>
+                            <div class="team-photo">
+                                <img src="images/team/shamalka.jpg" alt="Shamalka Perera" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-icon" style="display: none;">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <h4 class="team-name">Shamalka Perera</h4>
+                            <span class="team-role lead">Lead Researcher</span>
+                            <p class="team-institution">Sri Lanka Institute of Information Technology</p>
+                        </div>
+                        <div class="team-contact">
+                            <a href="mailto:it21261046@my.sliit.lk" class="contact-btn">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-member fade-in">
+                        <div>
+                            <div class="team-photo">
+                                <img src="images/team/avishka.jpg" alt="Avishka Dilhara" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-icon" style="display: none;">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <h4 class="team-name">Avishka Dilhara</h4>
+                            <span class="team-role developer">Research Developer</span>
+                            <p class="team-institution">Sri Lanka Institute of Information Technology</p>
+                        </div>
+                        <div class="team-contact">
+                            <a href="mailto:it21299452@my.sliit.lk" class="contact-btn">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-member fade-in">
+                        <div>
+                            <div class="team-photo">
+                                <img src="images/team/shenuka.jpg" alt="Shenuka Dias" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-icon" style="display: none;">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <h4 class="team-name">Shenuka Dias</h4>
+                            <span class="team-role developer">Research Developer</span>
+                            <p class="team-institution">Sri Lanka Institute of Information Technology</p>
+                        </div>
+                        <div class="team-contact">
+                            <a href="mailto:it21261664@my.sliit.lk" class="contact-btn">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-member fade-in">
+                        <div>
+                            <div class="team-photo">
+                                <img src="images/team/vishwadinu.jpg" alt="Vishwadinu Vithanage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-icon" style="display: none;">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <h4 class="team-name">Vishwadinu<br>Vithanage</h4>
+                            <span class="team-role developer">Research Developer</span>
+                            <p class="team-institution">Sri Lanka Institute of Information Technology</p>
+                        </div>
+                        <div class="team-contact">
+                            <a href="mailto:it21300950@my.sliit.lk" class="contact-btn">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Supervisors Section -->
+            <div class="supervisors-section">
+                <h3 class="supervisors-title fade-in">Research Supervisors</h3>
+                <p class="supervisors-subtitle fade-in">Expert guidance and mentorship</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="team-member fade-in">
+                            <div>
+                                <div class="team-photo">
+                                    <img src="images/supervisors/amila.jpg" alt="Amila Senarathne" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="placeholder-icon" style="display: none;">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                </div>
+                                <h4 class="team-name">Amila Senarathne</h4>
+                                <span class="team-role supervisor">Supervisor</span>
+                                <p class="team-institution">Sri Lanka Institute of Information Technology</p>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:amila.n@sliit.lk" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="team-member fade-in">
+                            <div>
+                                <div class="team-photo">
+                                    <img src="images/supervisors/chethana.jpg" alt="Chethana Liyanapathirana" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="placeholder-icon" style="display: none;">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                </div>
+                                <h4 class="team-name">Chethana Liyanapathirana</h4>
+                                <span class="team-role external">External Supervisor</span>
+                                <p class="team-institution">Commonwealth University of Pennsylvania</p>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:cliyanapat@commonwealthu.edu" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="team-member fade-in">
+                            <div>
+                                <div class="team-photo">
+                                    <img src="images/supervisors/deemantha.jpg" alt="Deemantha Siriwardana" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="placeholder-icon" style="display: none;">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                </div>
+                                <h4 class="team-name">Deemantha Siriwardana</h4>
+                                <span class="team-role co-supervisor">Co-Supervisor</span>
+                                <p class="team-institution">Sri Lanka Institute of Information Technology</p>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:deemantha.s@sliit.lk" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications & Documents Section - Enhanced -->
+    <section id="publications" class="section">
+    <div class="container">
+        <h2 class="section-title">Publications & Documents</h2>
+        <p class="section-subtitle">Research papers, presentations, and comprehensive documentation</p>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <i class="fas fa-file-pdf doc-icon pdf"></i>
+                        <div>
+                            <h3 class="doc-title">Research Paper</h3>
+                            <p class="doc-subtitle">IEEE Conference Publication</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="paper-title">Project HyperAdapt: An Agent-based intelligent sandbox design to deceive and analyze sophisticated malware</h4>
+                    
+                    <div class="paper-status mb-3">
+                        <span class="badge bg-success text-white px-3 py-2" style="font-size: 0.9rem; border-radius: 20px;">
+                            <i class="fas fa-check-circle me-2"></i>Accepted and Published
+                        </span>
+                    </div>
+                    
+                    <p class="paper-info"><strong>Published in:</strong> 13th International Symposium on Digital Forensics and Security (ISDFS 2025)</p>
+                    
+                    <a href="documents/research-paper/hyperadapt-research-paper.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <i class="fas fa-presentation doc-icon presentation"></i>
+                        <div>
+                            <h3 class="doc-title">Project Presentations</h3>
+                            <p class="doc-subtitle">Project milestone presentations</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="presentations-list">
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="documents/presentations/project-proposal-presentation.pdf" download>Project Proposal Presentation</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="documents/presentations/progress-presentation-1.pdf" download>Progress Presentation I</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="documents/presentations/progress-presentation-2.pdf" download>Progress Presentation II</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="documents/presentations/final-presentation.pdf" download>Final Presentation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <i class="fas fa-file-alt doc-icon report"></i>
+                        <div>
+                            <h3 class="doc-title">Project Reports</h3>
+                            <p class="doc-subtitle">Comprehensive research documentation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row reports-section">
+                        <div class="col-md-6">
+                            <h5 class="reports-title group">
+                                <i class="fas fa-users"></i>
+                                Group Final Report
+                            </h5>
+                            <div class="report-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <div>
+                                    <a href="documents/reports/group-final-report.pdf" class="report-link" download>Project HyperAdapt - Group Final Report</a>
+                                    <p class="report-description">Comprehensive team research findings</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5 class="reports-title individual">
+                                <i class="fas fa-user"></i>
+                                Individual Final Reports
+                            </h5>
+                            <div class="report-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="documents/reports/individual/shamalka-individual-report.pdf" class="report-link" download>Shamalka Perera - Individual Report</a>
+                            </div>
+                            <div class="report-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="documents/reports/individual/avishka-individual-report.pdf" class="report-link" download>Avishka Dilhara - Individual Report</a>
+                            </div>
+                            <div class="report-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="documents/reports/individual/shenuka-individual-report.pdf" class="report-link" download>Shenuka Dias - Individual Report</a>
+                            </div>
+                            <div class="report-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <a href="documents/reports/individual/vishwadinu-individual-report.pdf" class="report-link" download>Vishwadinu Vithanage - Individual Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Future Work Section -->
+    <section id="future-work" class="section">
+        <div class="container">
+            <h2 class="section-title">Future Research Directions</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Enhanced RL Models</h4>
+                        <p>Integration of advanced evasion techniques like polymorphism, process injection, and memory-resident execution. Upgrading to PPO or SAC architectures for improved policy efficiency.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Multi-sandbox targeting</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Advanced malware types (rootkits, APTs)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Improved generalizability</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>Real-time Adaptation</h4>
+                        <p>Development of mechanisms for real-time user behavior adjustment in response to malware interactions, creating more realistic sandbox environments.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Dynamic behavior adjustment</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Adaptive user actions</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Enhanced realism</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Novel Evasion Techniques</h4>
+                        <p>Focus on generation of new evasion technique variations to improve proactive detection and enhance sandbox analysis adaptability.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Automated variation generation</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Combined evasion tactics</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Sophisticated strategies</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Advanced Integration</h4>
+                        <p>Enhanced RL integration with sophisticated action-selection algorithms and state-of-the-art techniques for stronger evasive malware detection.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Automated feature extraction</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Polymorphic sample handling</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Real-time threat intelligence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-bg-3">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="component-card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Get in Touch</h4>
+                                <p>We welcome collaboration opportunities and research discussions. Feel free to reach out to our team for any inquiries about Project HyperAdapt.</p>
+                                
+                                <div class="contact-info">
+                                    <div class="mb-3">
+                                        <i class="fas fa-university text-primary me-3"></i>
+                                        <strong>Institution:</strong><br>
+                                        <span class="ms-4">Sri Lanka Institute of Information Technology</span>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                                        <strong>Location:</strong><br>
+                                        <span class="ms-4">Malabe, Sri Lanka</span>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <i class="fas fa-envelope text-primary me-3"></i>
+                                        <strong>Research Contact:</strong><br>
+                                        <span class="ms-4">it21261046@my.sliit.lk</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h4>Quick Contact</h4>
+                                <form class="contact-form">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <select class="form-control" id="subject">
+                                            <option>Research Collaboration</option>
+                                            <option>Technical Inquiry</option>
+                                            <option>Academic Partnership</option>
+                                            <option>General Question</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h4>Project HyperAdapt</h4>
+                    <p>Agent-Based Intelligent Sandbox Design for Advanced Malware Analysis</p>
+                    
+                    <div class="social-links">
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="Research Paper"><i class="fas fa-file-pdf"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:it21261046@my.sliit.lk" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    
+                    <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; 2025 Project HyperAdapt Research Team. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Sri Lanka Institute of Information Technology</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'linear-gradient(135deg, rgba(44, 62, 80, 0.85), rgba(52, 73, 94, 0.85))';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--dark-bg))';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Fade in animation for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.component-card, .team-member, .metric-card').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Dynamic typing effect for hero section
+        const heroTitle = document.querySelector('.hero-content h1');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typing effect after page load
+        window.addEventListener('load', function() {
+            setTimeout(typeWriter, 1000);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('#home');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Enhanced team member interactions - FIXED
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Additional interactive effects
+        document.querySelectorAll('.component-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Methodology cards interaction
+        document.querySelectorAll('.methodology-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
